@@ -5,18 +5,17 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Player player;
-    Vector3 moveVec, StartPosition;
+    Vector3 distance, moveVec;
 
     private void Start()
     {
-        StartPosition = transform.position - player.transform.position;
+        distance = transform.position - player.transform.position;
     }
 
     private void Update()
     {
-        moveVec = player.transform.position + StartPosition;
+        moveVec = distance + player.transform.position;
         moveVec.x = 0;
         transform.position = moveVec;
-
     }
 }
