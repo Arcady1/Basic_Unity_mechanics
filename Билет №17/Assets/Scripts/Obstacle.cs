@@ -19,7 +19,7 @@ public class Obstacle : MonoBehaviour
 
             if(spawnPosition.y == 0)
             {
-                spawnPosition.y = -2.5f;
+                spawnPosition.y = -3.6f;
                 spawnPosition.x = 5f;
 
             }
@@ -38,6 +38,6 @@ public class Obstacle : MonoBehaviour
             }
 
             Instantiate(obstacle, spawnPosition, Quaternion.identity);
-        }
+        }        
     }
 }
