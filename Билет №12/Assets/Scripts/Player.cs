@@ -15,10 +15,13 @@ public class Player : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(rb != null)
+        if(collision.relativeVelocity.y >= 0f)
         {
-            rb.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
-        }
+            if (rb != null)
+            {
+                rb.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
+            }
+        }              
     }
 
     private void Update()
