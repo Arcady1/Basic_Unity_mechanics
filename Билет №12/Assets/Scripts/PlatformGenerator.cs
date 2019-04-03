@@ -12,13 +12,14 @@ public class PlatformGenerator : MonoBehaviour
 
     private void Start()
     {
-        Vector3 spawnPosition = new Vector3();
+        Vector3 spawnPos = new Vector3();
 
         for (int i = 0; i < numberOfPlatform; i++)
         {
-            spawnPosition.y += Random.Range(minY, maxY);
-            spawnPosition.x = Random.Range(-posX, posX);
-            Instantiate(platformPrefab,spawnPosition, Quaternion.identity);
+            spawnPos.x = Random.Range(-posX, posX);
+            spawnPos.y += Random.Range(minY, maxY);
+
+            Instantiate(platformPrefab, spawnPos, Quaternion.identity);
         }
     }
 }

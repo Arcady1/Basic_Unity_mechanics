@@ -27,6 +27,14 @@ public class Player : MonoBehaviour
     private void Update()
     {
         movementX = Input.GetAxis("Horizontal") * movementXSpeed;
+
+        //if (Mathf.Abs(transform.position.y) < Mathf.Abs(transform.position.y - 8f))
+        //{
+        //    Vector3 pos = transform.position;
+        //    pos.y = -1f;
+        //    pos.x = 0f;
+        //    transform.position = pos;
+        //}
     }
     private void FixedUpdate()
     {
