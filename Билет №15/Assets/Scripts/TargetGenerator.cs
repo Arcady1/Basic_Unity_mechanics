@@ -5,8 +5,8 @@ using UnityEngine;
 public class TargetGenerator : MonoBehaviour
 {
     public GameObject target;
-    private float minX = -4.5f;
-    private float maxX = 4.5f;
+    private float minX = -4.3f;
+    private float maxX = 4.3f;
     private float minZ = -5f;
     private float maxZ = 5f;
     public float Interval = 2f;
@@ -25,9 +25,5 @@ public class TargetGenerator : MonoBehaviour
 
             Instantiate(target, spawnPosition, Quaternion.identity);
         }
-
-        //Destroy(target, 2f);
     }
-
-
 }

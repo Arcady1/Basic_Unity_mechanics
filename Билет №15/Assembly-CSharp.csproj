@@ -61,6 +61,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\Score.cs" />
+    <Compile Include="Assets\Scripts\Target.cs" />
     <Compile Include="Assets\Scripts\TargetGenerator.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:/Проекты Unity/University_course/Билет №15/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

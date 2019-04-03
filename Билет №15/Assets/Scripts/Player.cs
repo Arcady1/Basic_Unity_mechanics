@@ -31,13 +31,22 @@ public class Player : MonoBehaviour
 
     private void Graviy()
     {
-        if(!ch_controller.isGrounded)
+        if (!ch_controller.isGrounded)
         {
             gravityForce -= 20f * Time.deltaTime;
         }
         else
         {
             gravityForce = -1f;
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Point")
+        {
+            Score score = FindObjectOfType<Score>();
+            score.ScoreValue();
         }
     }
 }
