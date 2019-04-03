@@ -23,7 +23,7 @@ public class CameraController : MonoBehaviour
         if (playerPosition.y > transform.position.y)
         {
             Vector3 newPos = new Vector3(moveVec.x, moveVec.y, moveVec.z);
-            transform.position = Vector3.Lerp(transform.position, newPos, smootjSpeed);
+            transform.position = Vector3.Lerp(transform.position, newPos, smootjSpeed * Time.deltaTime);
         }
     }
 }
