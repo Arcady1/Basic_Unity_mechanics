@@ -4,23 +4,20 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float JumpForce = 8f;
+    public float JumpForce = 8f;    
+    public float movementXSpeed = 4f;
+    private float movementX = 0f;
     Rigidbody2D rb;
-    float movementX = 0f;
-    public float movementXSpeed = 5f;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(rb!= null)
+        if(rb != null)
         {
-            Vector2 velocity = rb.velocity;
-            velocity.y = JumpForce;
-            rb.velocity = velocity;
+            rb.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
         }
     }
 
@@ -28,7 +25,6 @@ public class Player : MonoBehaviour
     {
         movementX = Input.GetAxis("Horizontal") * movementXSpeed;
     }
-
     private void FixedUpdate()
     {
         Vector2 velocity = rb.velocity;
