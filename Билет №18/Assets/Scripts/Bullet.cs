@@ -5,11 +5,23 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float bulletSpeed = 6f;
-    public Vector3 direction;
+    Vector3 mousePosition;
 
     public void Update()
-    {        
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, bulletSpeed * Time.deltaTime);
+    {
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        transform.position = Vector3.MoveTowards(transform.position, mousePosition, bulletSpeed * Time.deltaTime);
         Destroy(gameObject, 1f);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Enemy")
+        {
+            Score score = FindObjectOfType<Score>();
+            score.ScoreValue();
+
+            Destroy(gameObject);
+        }
     }
 }
