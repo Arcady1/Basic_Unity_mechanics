@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2426430474926811026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -119,5 +119,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a59a3e1298f0e6f49b2d521d38d62731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 8752787378972985624, guid: f9e3e52ec10840b4eba88a4be3377d31, type: 3}
-  enemySpeed: 3
+  enemySpeed: 2

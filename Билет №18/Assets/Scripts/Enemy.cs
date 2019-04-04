@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public GameObject player;
     public float enemySpeed = 7f;
 
     void Update()
     {
-        Vector3 direction = transform.right * enemySpeed * Time.deltaTime;
+        Player player = FindObjectOfType<Player>();
         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, enemySpeed * Time.deltaTime);
     }
 }
