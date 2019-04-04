@@ -16,11 +16,23 @@ public class EnemyGenerator : MonoBehaviour
 
             Vector3 spawnPosition = new Vector3();
 
-            spawnPosition.x = Random.Range(-15f, 15f);
-            spawnPosition.y = 0.5f;
-            spawnPosition.z = Random.Range(-15f, 15f);
+            if(Random.Range(0, 2) == 0)
+            {
+                spawnPosition.x = 0f;
+                spawnPosition.y = 0.5f;
+                spawnPosition.z = -10f;
+                Instantiate(enemy, spawnPosition, Quaternion.identity);
+            }
+            if (Random.Range(0, 2) == 1)
+            {
+                spawnPosition.x = 0f;
+                spawnPosition.y = 0.5f;
+                spawnPosition.z = 10f;
+                Instantiate(enemy, spawnPosition, Quaternion.identity);
+            }
 
-            Instantiate(enemy, spawnPosition, Quaternion.identity);
+
+            
         }        
     }
 }

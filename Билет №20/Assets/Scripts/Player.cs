@@ -6,19 +6,34 @@ public class Player : MonoBehaviour
 {
     public float playerSpeed = 8f;
     Vector3 moveVec;
+    private float gravitation;
 
-    CharacterController ch_controller;
-
-    private void Start()
+    CharacterController ch_controller;private void Start()
     {
         ch_controller = GetComponent<CharacterController>();
+        }
+
+    private void Update()
+    {
+        GameGravity();
     }
 
     private void FixedUpdate()
     {
-        moveVec.x = Input.GetAxis("Vertical") * playerSpeed;
-        moveVec.z = Input.GetAxis("Horizontal") * playerSpeed;
+        
+    }
 
+    private void GameGravity()
+    {
+        if (!ch_controller.isGrounded)
+        {
+            gravitation -= 10f * Time.deltaTime;
+        }
+        else
+        {
+            gravitation = -1f;
+        }
+        moveVec.y = gravitation;
         ch_controller.Move(moveVec * Time.deltaTime);
     }
 }
