@@ -5,15 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject ResultObj;
+    public GameObject StartMenu;
+    public GameObject generator;
 
     public void StartGame()
     {
-        ResultObj.SetActive(false);
+        for (int i = 0; i < generator.transform.childCount; i++)
+        {
+            Destroy(generator.transform.GetChild(i).gameObject);
+        }
+
+        Score score = FindObjectOfType<Score>();
+        score.ResetScore();
+
+        StartMenu.SetActive(false);             
+
+        SceneManager.LoadScene("Game");   
     }
 
     public void ShowResult()
     {
-        ResultObj.SetActive(true);
+        StartMenu.SetActive(true);
     }
 }

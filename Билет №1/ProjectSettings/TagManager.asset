@@ -5,12 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Platform
-  - EndPoint
-  - NewZone
-  - Enemy
   - GroundCheck
   - CheckPoint
   - Restart
+  - Obstacle
   layers:
   - Default
   - TransparentFX

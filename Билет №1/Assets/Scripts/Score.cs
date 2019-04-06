@@ -3,20 +3,19 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    public int scoreValue = 0;
-    public Text txt;
+    private int score = 0;
+    public Text scoreText;
 
-    void Update()
+    public void ScoreValue()
     {
-        txt.text = "Score: " + scoreValue;
+        score += 1;
+        scoreText.text = "Score: " + score.ToString();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void ResetScore()
     {
-        if (collision.tag == "CheckPoint")
-        {
-            scoreValue += 1;            
-        }
+        score = 0;
+        scoreText.text = "Score: ";
     }
 }
 
