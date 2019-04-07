@@ -13,4 +13,10 @@ public class Score : MonoBehaviour
         score += 1;
         scoreText.text = "Score: " + score.ToString();
     }
+
+    public void ResetScore()
+    {
+        score = 0;
+        scoreText.text = "Score: ";
+    }
 }

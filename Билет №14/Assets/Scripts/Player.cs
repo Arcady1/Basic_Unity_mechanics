@@ -20,4 +20,13 @@ public class Player : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, MovingSpeed * Time.deltaTime);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Obstacle")
+        {
+            GameController controller = FindObjectOfType<GameController>();
+            controller.StopGame();
+        }
+    }
 }
