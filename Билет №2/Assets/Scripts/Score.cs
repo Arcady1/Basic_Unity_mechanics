@@ -5,19 +5,18 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    public int ScoreValue = 0;
-    public Text txt;
+    public Text scoreText;
+    private float score = 0f;
 
-    public void Update()
+    public void ScoreValue()
     {
-        txt.text = "Score: " + ScoreValue;
+        score += 1;
+        scoreText.text = "Score: " + score.ToString();
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    public void ResetScore()
     {
-        if (collision.tag == "Point")
-        {
-            ScoreValue += 1;
-        }
+        score = 0f;
+        scoreText.text = "Score: ";
     }
 }

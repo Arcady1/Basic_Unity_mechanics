@@ -5,22 +5,14 @@ using UnityEngine;
 public class PlayerSettings : MonoBehaviour
 {
     Rigidbody2D rb;
-    [SerializeField]
-    float PlayerVelocity = 1f;
-    [SerializeField]
-    float JumpForce = 6.0f;
-    [SerializeField]
-    float groundRadius = 0.2f;
-
-    public GameManager GM;
-
     public GameObject player;
 
+    public float JumpForce = 6.0f;
+
+    public float groundRadius = 0.2f;
     bool isGrounded = false;    
     public Transform GroundCheck;
     public LayerMask WhatIsGround;
-
-
 
     void Start()
     {
@@ -46,8 +38,10 @@ public class PlayerSettings : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            JumpForce = 0;
-            GM.ShowResult();
+            JumpForce = 0f;
+
+            GameController1 controller = FindObjectOfType<GameController1>();
+            controller.StopGame();
         }
     }
 
