@@ -9,16 +9,12 @@ public class EnemyGenerator : MonoBehaviour
     public float Interval = 2.0f;
     public float Timer = 0f;
 
-
-
     private void Update()
     {
         if (Time.timeSinceLevelLoad > Timer)
         {
             Timer += 1;
 
-            
-            
             if (Timer > StartTime + Interval)
             {
                 StartTime += Interval;
