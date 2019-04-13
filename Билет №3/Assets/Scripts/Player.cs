@@ -19,13 +19,10 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             isJumping = true;
-
-            targetY *= -1;
+            targetY *= -1f;
 
             Tweener jumpTween = transform.DOMoveY(targetY, 0.4f);
-
             jumpTween.OnComplete(() => isJumping = false);
-            
             jumpTween.Play();
         }
     }
