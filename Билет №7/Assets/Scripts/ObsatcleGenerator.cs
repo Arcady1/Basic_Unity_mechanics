@@ -7,7 +7,7 @@ public class ObsatcleGenerator : MonoBehaviour
     [SerializeField]
     private GameObject obsatcle;
     [SerializeField]
-    private float interval = 3f;
+    private float interval = 2f;
     
     void Start()
     {
