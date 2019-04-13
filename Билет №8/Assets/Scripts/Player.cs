@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -14,11 +13,9 @@ public class Player : MonoBehaviour
 
     private void Shoot()
     {
-        Vector3 position = transform.position;
-        Bullet bull = Instantiate(bullet, position, bullet.transform.rotation);
-        bull.Direction = bull.transform.right * (player.flipX ? -1.0f : 1.0f);
-    }
-   
+        Bullet bull = Instantiate(bullet, transform);
+        bull.Direction = bull.transform.right * (player.flipX ? -1f : 1f);
+    }   
     private void Update()
     {
         if (Input.GetKey(KeyCode.D))
@@ -41,13 +38,5 @@ public class Player : MonoBehaviour
 
             StartTime += Interval;
         }
-    }
-
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.tag == "Obstacle")
-        {
-            SceneManager.LoadScene(0, LoadSceneMode.Single);
-        }
-    }
+    }    
 }

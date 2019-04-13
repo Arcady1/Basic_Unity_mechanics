@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Obstacle2 : MonoBehaviour
 {
@@ -22,6 +23,10 @@ public class Obstacle2 : MonoBehaviour
 
             Score score = FindObjectOfType<Score>();
             score.ScoreValue();
+        }
+        if (collision.tag == "Player")
+        {
+            SceneManager.LoadScene(0, LoadSceneMode.Single);
         }
     }
 }
