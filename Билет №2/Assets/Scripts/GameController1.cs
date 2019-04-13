@@ -22,10 +22,6 @@ public class GameController1 : MonoBehaviour
 
         Score score = FindObjectOfType<Score>();
         score.ResetScore();
-
-        EnemyGenerator gener = FindObjectOfType<EnemyGenerator>();
-        gener.Timer = 0f;
-        gener.StartTime = 0f;
     }
 
     public void StopGame()

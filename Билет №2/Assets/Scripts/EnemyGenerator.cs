@@ -4,23 +4,46 @@ using UnityEngine;
 
 public class EnemyGenerator : MonoBehaviour
 {
-    public Enemy Enemy;
-    public float StartTime = 0f;
-    public float Interval = 2.0f;
-    public float Timer = 0f;
+    [SerializeField]
+    private Enemy Enemy;
+    [SerializeField]
+    [Range(1f, 8f)]
+    private float Interval = 4f;
+    [SerializeField]
+    private float nextSpeed = 1f;
 
     private void Update()
     {
-        if (Time.timeSinceLevelLoad > Timer)
-        {
-            Timer += 1;
+        StartCoroutine(Generator());
+        StartCoroutine(IntervalCor());
+        StartCoroutine(NextEnemySpeed());
+    }
 
-            if (Timer > StartTime + Interval)
-            {
-                StartTime += Interval;
+    private IEnumerator Generator()
+    {
+        while (true)
+        {            
+            Enemy enemy = Instantiate(Enemy, transform);
+            enemy.Speed = nextSpeed;
 
-                Enemy enemy = Instantiate(Enemy, transform);
-            }
+            yield return new WaitForSeconds(Interval);
         }        
+    }
+
+    private IEnumerator IntervalCor()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(4f);
+
+            Interval = Mathf.Max(1f, Interval - 0.2f);
+        }
+    }
+
+    private IEnumerator NextEnemySpeed()
+    {
+        yield return new WaitForSeconds(4f);
+
+        nextSpeed += 0.3f;
     }
 }

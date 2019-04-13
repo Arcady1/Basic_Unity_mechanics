@@ -4,14 +4,27 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private float enemySpeed = 5f;
+    [SerializeField]
+    [Range(1f, 8f)]
+    private float enemySpeed = 1f;
+
+    public float Speed
+    {
+        get => enemySpeed;
+        set => enemySpeed = Mathf.Max(value, 4f);
+    }
 
     void Update()
     {
-        Vector3 direction = -transform.right * enemySpeed * Time.timeSinceLevelLoad * 0.002f;
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, enemySpeed * Time.timeSinceLevelLoad * 0.002f);
+        Moving();
+    }    
 
-        if(transform.position.x < -4f)
+    private void Moving()
+    {
+        Vector3 direction = -transform.right * enemySpeed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, enemySpeed * Time.deltaTime);
+
+        if (transform.position.x < -4f)
         {
             Destroy(gameObject);
 
