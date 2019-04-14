@@ -140,3 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c494519ed1bcc045abfb986ffc50844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MovingSpeed: 9
+  interval: 1
+  bullet: {fileID: 8799914946797733286, guid: 80e6412c4ef4ddf48953a269fdff01fb, type: 3}
