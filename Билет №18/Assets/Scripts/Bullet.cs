@@ -10,9 +10,8 @@ public class Bullet : MonoBehaviour
     public void Update()
     {
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
         transform.position = Vector3.MoveTowards(transform.position, mousePosition, bulletSpeed * Time.deltaTime);
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, 0.5f);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -42,5 +42,14 @@ public class Player : MonoBehaviour
             Vector3 direction = -transform.up * playerSpeed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, playerSpeed * Time.deltaTime);
         }
-    } 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Enemy")
+        {
+            GameController controller = FindObjectOfType<GameController>();
+            controller.StopGame();
+        }
+    }
 }
