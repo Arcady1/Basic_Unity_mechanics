@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObstacleGenerator : MonoBehaviour
 {
     public Obstacle obsatcle;
-    public float Interval = 1.5f;
+    public float Interval = 1.8f;
     private float StartTime = 0f;
 
     void Update()
