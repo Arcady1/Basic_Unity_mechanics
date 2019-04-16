@@ -27,7 +27,7 @@ public class PlayerSettings : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapCircle(GroundCheck.position, groundRadius, WhatIsGround);
         if (!isGrounded)
@@ -38,9 +38,7 @@ public class PlayerSettings : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            JumpForce = 0f;
-
-            GameController1 controller = FindObjectOfType<GameController1>();
+            GameController controller = FindObjectOfType<GameController>();
             controller.StopGame();
         }
     }

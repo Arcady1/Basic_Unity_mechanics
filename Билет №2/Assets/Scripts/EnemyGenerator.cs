@@ -10,9 +10,9 @@ public class EnemyGenerator : MonoBehaviour
     [Range(1f, 8f)]
     private float Interval = 4f;
     [SerializeField]
-    private float nextSpeed = 1f;
+    private float nextSpeed;
 
-    private void Update()
+    private void Start()
     {
         StartCoroutine(Generator());
         StartCoroutine(IntervalCor());
@@ -22,11 +22,11 @@ public class EnemyGenerator : MonoBehaviour
     private IEnumerator Generator()
     {
         while (true)
-        {            
-            Enemy enemy = Instantiate(Enemy, transform);
-            enemy.Speed = nextSpeed;
-
+        {
             yield return new WaitForSeconds(Interval);
+
+            Enemy enemy = Instantiate(Enemy, transform);
+            enemy.Speed += nextSpeed;
         }        
     }
 
@@ -34,7 +34,7 @@ public class EnemyGenerator : MonoBehaviour
     {
         while(true)
         {
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(3.5f);
 
             Interval = Mathf.Max(1f, Interval - 0.2f);
         }
@@ -42,8 +42,11 @@ public class EnemyGenerator : MonoBehaviour
 
     private IEnumerator NextEnemySpeed()
     {
-        yield return new WaitForSeconds(4f);
+        while(true)
+        {
+            yield return new WaitForSeconds(4f);
 
-        nextSpeed += 0.3f;
+            nextSpeed += 0.3f;
+        }        
     }
 }

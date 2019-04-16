@@ -5,13 +5,12 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
-    [Range(1f, 8f)]
-    private float enemySpeed = 1f;
+    public float enemySpeed = 5f;
 
     public float Speed
     {
         get => enemySpeed;
-        set => enemySpeed = Mathf.Max(value, 4f);
+        set => Mathf.Max(1f, value);
     }
 
     void Update()
