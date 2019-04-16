@@ -41,7 +41,8 @@ public class Player : MonoBehaviour
     {
         if (collision.tag == "Obstacle")
         {
-            //
+            GameController controller = FindObjectOfType<GameController>();
+            controller.StopGame();
         }
     }   
 }

@@ -5,15 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        DontDestroyOnLoad(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartGame()
+    {      
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
+        Score.score = 0;
+    }
+
+    public void StopGame()
     {
-        
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 }
