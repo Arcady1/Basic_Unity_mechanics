@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float JumpForce = 9f;   
-    
-    public float groundRadius = 0.2f;
-    public LayerMask whatIsGround;
-    public Transform groundCheck;
-    bool isGrounded = false;
+    [SerializeField]
+    [Range(1f,9f)]
+    private float JumpForce = 9f;
+
+    [SerializeField]
+    private LayerMask WhatIsGround;
+    [SerializeField]
+    private Transform GroundCheck;
+    private float GroundRadius = 0.2f;
+    private bool isGrounded = false;
 
     Rigidbody2D rb;    
     
@@ -20,15 +24,15 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if(isGrounded && Input.GetKeyDown(KeyCode.Space))
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
-            rb.AddForce(new Vector2(0, 20) * JumpForce);
+            rb.AddForce(transform.up * JumpForce,ForceMode2D.Impulse);
         }
 
     }
     void FixedUpdate()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
+        isGrounded = Physics2D.OverlapCircle(GroundCheck.transform.position, GroundRadius, WhatIsGround);
         if (!isGrounded)
             return;
     }
@@ -37,10 +41,7 @@ public class Player : MonoBehaviour
     {
         if (collision.tag == "Obstacle")
         {
-            GameManager manager = FindObjectOfType<GameManager>();
-            manager.ShowResult();
-
-            JumpForce = 0f;
+            //
         }
     }   
 }

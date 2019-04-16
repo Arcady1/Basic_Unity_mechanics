@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    private int score = 0;
+    public static int score = 0;
     public Text scoreText;
 
     public void ScoreValue()
