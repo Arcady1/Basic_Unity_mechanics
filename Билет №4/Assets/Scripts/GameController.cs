@@ -1,32 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public GameObject MainMenu;
-    public Score score;
-    public ObstacleGenerator generatorO;
-    public PointGenerator generatorP;
+    void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
     public void StartGame()
     {
-        MainMenu.SetActive(false);
-        score.ResetScore();
-
-        for(int i = 0; i < generatorO.transform.childCount; i++)
-        {
-            Destroy(generatorO.transform.GetChild(i).gameObject);
-        }
-
-        for (int j = 0; j < generatorP.transform.childCount; j++)
-        {
-            Destroy(generatorP.transform.GetChild(j).gameObject);
-        }
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
+        Score.score = 0;
     }
 
-    public void GameOver()
+    public void StopGame()
     {
-        MainMenu.SetActive(true);
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 }

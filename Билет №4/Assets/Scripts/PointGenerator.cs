@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class PointGenerator : MonoBehaviour
 {
-    private float StartTime = 0f;
-    public float Interval = 2f;
-    public GameObject Point;
+    [SerializeField]
+    private float Interval = 5f;
+    [SerializeField]
+    private GameObject Point;
 
-    public void Update()
+    public void Start()
     {
-        if (Time.time >= StartTime + Interval)
-        {
-            GameObject pos = Instantiate(Point, transform);
+        StartCoroutine(Generator());
+    }
 
-            StartTime += Interval;            
+    private IEnumerator Generator()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(Interval);
+
+            GameObject pos = Instantiate(Point, transform);
         }
     }
 }

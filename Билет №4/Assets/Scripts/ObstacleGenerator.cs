@@ -4,30 +4,30 @@ using UnityEngine;
 
 public class ObstacleGenerator : MonoBehaviour
 {
-    public float Interval = 0.5f;
-    private float StartTime = 0f;
-    public Obstacle ObstaclePrefab;
+    [SerializeField]
+    [Range(0.5f, 2f)]
+    private float Interval = 0.5f;
+    [SerializeField]
+    private Obstacle ObstaclePrefab;
 
-    void Update()
+    private void Start()
     {
-        if (Time.time >= StartTime + Interval)
+        StartCoroutine(ObstGenerator());
+    }
+
+    private IEnumerator ObstGenerator()
+    {
+        while (true)
         {
+            yield return new WaitForSeconds(Interval);
             Obstacle obstacle = Instantiate(ObstaclePrefab, transform);
 
-            if (Random.Range(0,2) == 1)
+            if (Random.Range(0, 2) == 1)
             {
                 Vector3 pos = obstacle.transform.position;
                 pos.x *= -1;
                 obstacle.transform.position = pos;
             }
-
-            StartTime += Interval;
-
-            if(Interval > 1f)
-            {
-                Interval -= 0.1f;
-            }
-
         }
     }
 }
