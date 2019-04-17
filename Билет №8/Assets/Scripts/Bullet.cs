@@ -9,9 +9,15 @@ public class Bullet : MonoBehaviour
     Vector3 direction;
     public Vector3 Direction { set { direction = value; } }    
 
-    public void Update()
+    private void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, BulletSpeed * Time.deltaTime);
         Destroy(gameObject, 1f);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Obstacle")
+            Destroy(gameObject);
     }
 }

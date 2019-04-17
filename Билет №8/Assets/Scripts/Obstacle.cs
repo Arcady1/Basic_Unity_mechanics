@@ -5,14 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class Obstacle : MonoBehaviour
 {
-    public float ObstacleSpeed = 3f;
+    [SerializeField]
+    private float ObstacleSpeed = 3f;
+    Vector3 direction;
+    public Vector3 Direction { set { direction = value; } }
     
     void Update()
     {
-        Vector3 direction = transform.right * ObstacleSpeed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, ObstacleSpeed * Time.deltaTime);
 
-        Destroy(gameObject, 8f);
+        Destroy(gameObject, 5f);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
