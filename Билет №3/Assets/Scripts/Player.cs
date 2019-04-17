@@ -6,10 +6,7 @@ using DG.Tweening;
 public class Player : MonoBehaviour
 {
     private float targetY = -1.11f;
-    private bool isJumping = false;
-
-    public GameConroller gameConroller;
-    
+    private bool isJumping = false;    
 
     void Update()
     {
@@ -31,7 +28,8 @@ public class Player : MonoBehaviour
     {
         if(collision.tag == "Obstacle")
         {
-            gameConroller.GameOver();
+            GameConroller controller = FindObjectOfType<GameConroller>();
+            controller.StopGame();
         }
     }
 

@@ -1,26 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameConroller : MonoBehaviour
 {
-    public GameObject MainMenu;
-    public Score score;
-    public ObstacleGenerator generator;
+    private void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
     public void StartGame()
     {
-        MainMenu.SetActive(false);
-        score.ResetScore();
-
-        for(int i=0; i< generator.transform.childCount; i++)
-        {
-            Destroy(generator.transform.GetChild(i).gameObject);
-        }
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
+        Score.score = 0;
     }
 
-    public void GameOver()
+    public void StopGame()
     {
-        MainMenu.SetActive(true);
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 }
