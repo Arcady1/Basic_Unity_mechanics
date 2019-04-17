@@ -48,12 +48,13 @@ public class Player : MonoBehaviour
             Instantiate(bullet, spawnPos, Quaternion.identity);
         }        
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)        
     {
-        if (collision.transform.tag == "Obstacle")
+        if (other.tag == "Obstacle")
         {
             GameController controller = FindObjectOfType<GameController>();
             controller.StopGame();
         }
+            
     }
 }

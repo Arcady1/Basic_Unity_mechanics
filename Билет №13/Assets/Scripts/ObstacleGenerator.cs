@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObstacleGenerator : MonoBehaviour
 {
     [SerializeField]
-    private GameObject Obstacle;
+    private Obstacle Obstacle;
     [SerializeField]
     [Range(2.5f, 4f)]
     private float Interval = 2.5f;
@@ -22,11 +22,14 @@ public class ObstacleGenerator : MonoBehaviour
         {
             yield return new WaitForSeconds(Interval);
 
+            Obstacle obst = Instantiate(Obstacle, transform);
+
             Vector3 spawnPos = new Vector3();
             spawnPos.x = Random.Range(-6f, 6f);
             spawnPos.y = 10f;
             spawnPos.z = 0f;
-            Instantiate(Obstacle, spawnPos, Quaternion.identity);
+
+            obst.transform.position = spawnPos;            
         }         
     }
 

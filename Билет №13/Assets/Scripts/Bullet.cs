@@ -15,4 +15,10 @@ public class Bullet : MonoBehaviour
 
         Destroy(gameObject, 2.5f);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Obstacle")
+            Destroy(gameObject);
+    }
 }
