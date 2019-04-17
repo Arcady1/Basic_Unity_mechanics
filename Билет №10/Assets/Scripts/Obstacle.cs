@@ -8,9 +8,20 @@ public class Obstacle : MonoBehaviour
 
     void Update()
     {
+        Move();
+    }
+
+    void Move()
+    {
         Vector3 direction = -transform.up * ObstacleSpeed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, ObstacleSpeed * Time.deltaTime);
 
-        Destroy(gameObject, 2.5f);
+        if (transform.position.y <= -5.5f)
+        {
+            Destroy(gameObject);
+
+            Score score = FindObjectOfType<Score>();
+            score.ScoreValue();
+        }            
     }
 }

@@ -5,18 +5,21 @@ using UnityEngine;
 public class ObstacleGenerator : MonoBehaviour
 {
     public Obstacle obstacle;
-    private float StartTime = 0f;    
 
-    private void Update()
+    private void Start()
     {
+        StartCoroutine(Inst());
+    }
 
-        if (Time.timeSinceLevelLoad >= StartTime + Random.Range(1,3))
+    IEnumerator Inst()
+    {
+        while(true)
         {
-            StartTime += Random.Range(1, 3);
+            yield return new WaitForSeconds(Random.Range(1, 3));
 
             Obstacle obst = Instantiate(obstacle, transform);
-            
-            if(Random.Range(0,3) == 0)
+
+            if (Random.Range(0, 3) == 0)
             {
                 Vector3 pos = obstacle.transform.position;
                 pos.x = -2.2f;

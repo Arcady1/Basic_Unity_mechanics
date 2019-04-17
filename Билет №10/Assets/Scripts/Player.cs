@@ -2,20 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public float targetX;
-    public int LineNumber;
+    private float targetX;
+    private int LineNumber;
 
-    public void Start()
+    void Start()
     {
         LineNumber = 1;
         targetX = 0f;
     }
 
-    public void Update()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.D) && LineNumber == 1)
         {
@@ -58,7 +57,8 @@ public class Player : MonoBehaviour
     {
         if(collision.tag == "Obstacle")
         {
-            SceneManager.LoadScene(0, LoadSceneMode.Single);
+            GameController controller = FindObjectOfType<GameController>();
+            controller.StopGame();
         }
     }
 }
