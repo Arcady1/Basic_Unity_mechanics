@@ -21,11 +21,13 @@ public class ObsatcleGenerator : MonoBehaviour
         {
             yield return new WaitForSeconds(interval);
 
+            GameObject obst = Instantiate(obsatcle, transform);
+
             Vector3 SpawnPos = new Vector3();
-            SpawnPos.x = Random.Range(-7f, 7f);
+            SpawnPos.x = Random.Range(-6f, 6f);
             SpawnPos.y = 11f;
             SpawnPos.z = 0f;
-            Instantiate(obsatcle, SpawnPos, Quaternion.identity);            
+            obst.transform.position = SpawnPos;
         }        
     }
 

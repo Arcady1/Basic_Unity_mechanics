@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\Obstacle.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />
+    <Compile Include="Assets\Scripts\ScoreMenu.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:/Проекты Unity/University_course/Билет №7/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
