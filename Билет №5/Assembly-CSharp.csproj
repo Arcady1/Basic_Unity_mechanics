@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\GameContoller.cs" />
+    <Compile Include="Assets\Scripts\MenuScore.cs" />
     <Compile Include="Assets\Scripts\Obsatcle.cs" />
     <Compile Include="Assets\Scripts\ObstacleGenerator.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />

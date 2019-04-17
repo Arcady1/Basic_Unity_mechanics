@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameContoller : MonoBehaviour
 {
-    public void Start()
+    private void Start()
     {       
         DontDestroyOnLoad(gameObject);
     }
