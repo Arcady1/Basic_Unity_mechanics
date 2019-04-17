@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float BulletSpeed = 8f;
-    public Vector3 direction;
-    public Vector3 Direction { set { direction = value; } }
+    [SerializeField]
+    private float BulletSpeed = 8f;
+    Vector3 direction;
+    public Vector3 Direction { set { direction = value; } }    
 
     public void Update()
     {

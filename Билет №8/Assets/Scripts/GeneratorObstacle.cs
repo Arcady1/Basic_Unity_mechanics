@@ -8,6 +8,21 @@ public class GeneratorObstacle : MonoBehaviour
     private float StartTime = 0f;
     public float Interval = 2f;
 
+    private void Start()
+    {
+        
+    }
+
+    IEnumerator Inst()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(2f);
+
+
+        }
+    }
+
     public void Update()
     {
         if (Time.timeSinceLevelLoad >= StartTime + Interval)
