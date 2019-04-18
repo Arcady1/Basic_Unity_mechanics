@@ -4,40 +4,40 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    public GameObject obstacle;
-    private float StartTime = 0f;
-    public float Interval = 1.5f;
-    Vector3 movement;
+    [SerializeField]
+    private ObstMovement obstacle;
+    [SerializeField]
+    [Range(1.5f, 2f)]
+    private float Interval = 1.5f;
+    Vector3 spawnPosition;
 
-    private void Update()
+    private void Start()
     {
-        if (Time.timeSinceLevelLoad > StartTime + Interval)
+        StartCoroutine(Inst());
+    }
+
+    IEnumerator Inst()
+    {
+        while (true)
         {
-            StartTime += Interval;
+            yield return new WaitForSeconds(Interval);
 
-            Vector3 spawnPosition = new Vector3();
+            ObstMovement obst = Instantiate(obstacle, transform);
 
-            if(spawnPosition.y == 0)
-            {
-                spawnPosition.y = -3.6f;
-                spawnPosition.x = 5f;
-
-            }
-
-            if(Random.Range(0, 2) == 0)
+            if (Random.Range(0, 2) == 0)
             {
                 spawnPosition.x = 5f;
                 spawnPosition.y = -3.6f;
-                //Instantiate(obstacle, spawnPosition, Quaternion.identity);
+
+                obst.transform.position = spawnPosition;
             }
-            if(Random.Range(0, 2) == 1)
+            if (Random.Range(0, 2) == 1)
             {
                 spawnPosition.x = 5f;
-                spawnPosition.y = -2.5f;
-                //Instantiate(obstacle, spawnPosition, Quaternion.identity);
-            }
+                spawnPosition.y = -2.56f;
 
-            Instantiate(obstacle, spawnPosition, Quaternion.identity);
-        }        
+                obst.transform.position = spawnPosition;
+            }
+        }
     }
 }

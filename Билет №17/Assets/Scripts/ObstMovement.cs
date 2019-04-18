@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObstMovement : MonoBehaviour
 {
+    [SerializeField]
     private float obstacleSpeed = 5f;
     
     private void Update()

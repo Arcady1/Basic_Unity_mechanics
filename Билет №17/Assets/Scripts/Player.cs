@@ -1,25 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public float JumpForce = 10f;
+    [SerializeField]
+    [Range(15f, 30f)]
+    private float JumpForce = 15f;
     private float ExtraJumps;
     Rigidbody2D rb;
 
     private bool isGrounded = false;
-    public LayerMask WhatIsGround;
-    public Transform GroundCheck;
+    [SerializeField]
+    private LayerMask WhatIsGround;
+    [SerializeField]
+    private Transform GroundCheck;
     private float groundCheckRadius = 0.2f;
 
-    private void Start()
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && ExtraJumps > 0)
         {
@@ -28,19 +31,18 @@ public class Player : MonoBehaviour
         } 
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapCircle(GroundCheck.position, groundCheckRadius, WhatIsGround);
         if (isGrounded)
-        {
-            ExtraJumps = 1f;
-        }
+            ExtraJumps = 1;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Obstacle")
         {
-            SceneManager.LoadScene(0, LoadSceneMode.Single);
+            GameController controller = FindObjectOfType<GameController>();
+            controller.StopGame();
         }
     }
 }
