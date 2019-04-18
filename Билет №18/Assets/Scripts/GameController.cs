@@ -12,12 +12,11 @@ public class GameController : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(1, LoadSceneMode.Single);
+        Score.score = 0;
     }
 
     public void StopGame()
     {
         SceneManager.LoadScene(0, LoadSceneMode.Single);
-        Score score = FindObjectOfType<Score>();
-        score.ResetScore();
     }
 }

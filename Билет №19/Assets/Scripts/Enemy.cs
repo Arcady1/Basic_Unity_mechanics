@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float EnemySpeed = 10f;
+    private float EnemySpeed = 10f;
 
-    private void FixedUpdate()
+    private void Update()
     {
         Vector3 direction = transform.right * EnemySpeed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, EnemySpeed * Time.deltaTime);
 
-        if(transform.position.x > 50f)
+        if(transform.position.x >= 1f)
         {
             Destroy(gameObject);
 

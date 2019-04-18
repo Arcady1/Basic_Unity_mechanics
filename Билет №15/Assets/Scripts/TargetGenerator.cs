@@ -4,26 +4,37 @@ using UnityEngine;
 
 public class TargetGenerator : MonoBehaviour
 {
-    public GameObject target;
-    private float minX = -4.3f;
-    private float maxX = 4.3f;
+    [SerializeField]
+    private Target target;
+    private float minX = -11f;
+    private float maxX = 8f;
     private float minZ = -5f;
-    private float maxZ = 5f;
-    public float Interval = 2f;
-    private float StartTime = 0f;
+    private float maxZ = 4f;
+    [SerializeField]
+    [Range(1f, 2.5f)]
+    private float Interval = 1.8f;
+    [SerializeField]
+    public static int countOfTargets;
 
-    private void Update()
+    private void Start()
     {
-        if(Time.timeSinceLevelLoad > Interval + StartTime)
+        StartCoroutine(Inst());
+    }
+
+    IEnumerator Inst()
+    {
+        while(true)
         {
-            StartTime += Interval;
+            yield return new WaitForSeconds(Interval);
 
-            Vector3 spawnPosition = new Vector3();
+            countOfTargets += 1;
 
-            spawnPosition.x = Random.Range(minX, maxX);
-            spawnPosition.z = Random.Range(minZ, maxZ);
+            Target targ = Instantiate(target, transform);
+            Vector3 spawnPos = new Vector3();
+            spawnPos.x = Random.Range(minX, maxX);
+            spawnPos.z = Random.Range(minZ, maxZ);
 
-            Instantiate(target, spawnPosition, Quaternion.identity);
+            targ.transform.position = spawnPos;
         }
     }
 }

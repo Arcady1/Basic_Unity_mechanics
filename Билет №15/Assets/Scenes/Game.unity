@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 144191638}
   - component: {fileID: 144191637}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,7 +153,7 @@ MeshRenderer:
   m_GameObject: {fileID: 144191636}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -197,8 +197,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144191636}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.9402679, y: 3.1214948, z: 6.7721834}
-  m_LocalScale: {x: 1, y: 1, z: 14}
+  m_LocalPosition: {x: 2.4, y: 3.5, z: 6.6}
+  m_LocalScale: {x: 1, y: 1, z: 30}
   m_Children: []
   m_Father: {fileID: 2122006120}
   m_RootOrder: 2
@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 401976540}
   - component: {fileID: 401976539}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Left
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -313,7 +313,7 @@ MeshRenderer:
   m_GameObject: {fileID: 401976538}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -357,8 +357,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 401976538}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.7197318, y: 3.1214948, z: -0.6078168}
-  m_LocalScale: {x: 1, y: 1, z: 14}
+  m_LocalPosition: {x: -12.5, y: 3.4, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 16}
   m_Children: []
   m_Father: {fileID: 2122006120}
   m_RootOrder: 0
@@ -458,7 +458,7 @@ GameObject:
   - component: {fileID: 804044723}
   - component: {fileID: 804044722}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -486,7 +486,7 @@ MeshRenderer:
   m_GameObject: {fileID: 804044721}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -530,8 +530,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 804044721}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.050268, y: 3.1214948, z: -0.68781674}
-  m_LocalScale: {x: 1, y: 1, z: 14}
+  m_LocalPosition: {x: 17, y: 3.4, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 16}
   m_Children: []
   m_Father: {fileID: 2122006120}
   m_RootOrder: 1
@@ -882,7 +882,7 @@ GameObject:
   - component: {fileID: 1126262874}
   - component: {fileID: 1126262873}
   m_Layer: 0
-  m_Name: Cube (3)
+  m_Name: Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -910,7 +910,7 @@ MeshRenderer:
   m_GameObject: {fileID: 1126262872}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -954,8 +954,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1126262872}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2.250268, y: 3.1214948, z: -8.057817}
-  m_LocalScale: {x: 1, y: 1, z: 14}
+  m_LocalPosition: {x: 2.87, y: 3.5, z: -8.5}
+  m_LocalScale: {x: 1, y: 1, z: 30}
   m_Children: []
   m_Father: {fileID: 2122006120}
   m_RootOrder: 3
@@ -1147,7 +1147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9386d4f72a8a9d4096134377f63c08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 3407496306906001030, guid: 89abde4421acc1c40838eff2c969ad77, type: 3}
+  target: {fileID: 8845989145012375556, guid: 89abde4421acc1c40838eff2c969ad77, type: 3}
   Interval: 2
 --- !u!4 &1979183650
 Transform:

@@ -6,7 +6,8 @@ using DG.Tweening;
 public class Player : MonoBehaviour
 {
     private float targetZ = -1.4f;
-    public int numberOfLine;
+    [SerializeField]
+    private int numberOfLine;
 
     private void Start()
     {
@@ -47,6 +48,15 @@ public class Player : MonoBehaviour
             jumpTween.Play();
 
             numberOfLine = 1;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Enemy")
+        {
+            GameController controller = FindObjectOfType<GameController>();
+            controller.StopGame();
         }
     }
 }

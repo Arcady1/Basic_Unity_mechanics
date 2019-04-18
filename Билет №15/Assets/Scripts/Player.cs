@@ -4,49 +4,57 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float speedMove = 9f;
+    [SerializeField]
+    [Range(8f, 11f)]
+    private float speedMove = 9f;
     private float gravityForce;
-    Vector3 moveVec;
-    CharacterController ch_controller;
+    CharacterController _controller;
+    [SerializeField]
+    private int count = 1;
 
-    public void Start()
+    void Start()
     {
-        ch_controller = GetComponent<CharacterController>();
+        _controller = GetComponent<CharacterController>();
     }
-    public void Update()
+
+    void Update()
     {
-        CharacterMove();
+        Move();
         Graviy();
+
+        if(count < TargetGenerator.countOfTargets)
+        {
+            GameController controller = FindObjectOfType<GameController>();
+            controller.StopGame();
+        }
     }
 
-    public void CharacterMove()
+    void Move()
     {
-        moveVec = Vector3.zero;
+        Vector3 moveVec = Vector3.zero;
         moveVec.x = Input.GetAxis("Horizontal") * speedMove;
         moveVec.z = Input.GetAxis("Vertical") * speedMove;
         moveVec.y = gravityForce;
 
-        ch_controller.Move(moveVec * Time.deltaTime);
+        _controller.Move(moveVec * Time.deltaTime);
     }
 
-    private void Graviy()
+    void Graviy()
     {
-        if (!ch_controller.isGrounded)
-        {
-            gravityForce -= 20f * Time.deltaTime;
-        }
+        if (_controller.isGrounded)
+            gravityForce -= 30f * Time.deltaTime;
         else
-        {
             gravityForce = -1f;
-        }
     }
 
-    public void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Point")
         {
             Score score = FindObjectOfType<Score>();
             score.ScoreValue();
+
+            count += 1;
         }
     }
 }
