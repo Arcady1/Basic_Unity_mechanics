@@ -1,34 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public GameObject MainMenu;
-    public GameObject obstacleGenerator;
+    void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
     public void StartGame()
     {
-        MainMenu.SetActive(false);
-
-        Vector3 spawnPos = new Vector3();
-        spawnPos.x = 5f;
-        spawnPos.y = 0f;
-        Instantiate(obstacleGenerator, spawnPos, Quaternion.identity);
-
-        Score score = FindObjectOfType<Score>();
-        score.ResetScore();
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
+        Score.score = 0;
     }
 
     public void StopGame()
     {
-        MainMenu.SetActive(true);
-
-        ObstacleGenerator generator = FindObjectOfType<ObstacleGenerator>();
-        Destroy(generator);
-        
-        Player player = FindObjectOfType<Player>();
-        player.MovingSpeed = 0f;
-    }    
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
+    }
 }

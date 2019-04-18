@@ -4,21 +4,30 @@ using UnityEngine;
 
 public class ObstacleGenerator : MonoBehaviour
 {
-    public GameObject obstacle;
-    private float StartTime = 0f;
-    public float Interval = 1f;
+    [SerializeField]
+    private Obstacle obstacle;
+    [SerializeField]
+    [Range(1f, 4f)]
+    private float Interval = 1f;
 
-    void Update()
+    private void Start()
     {
-        if(Time.timeSinceLevelLoad > StartTime + Interval)
+        StartCoroutine(Inst());
+    }
+
+    IEnumerator Inst()
+    {
+        while(true)
         {
-            StartTime += Interval;
+            yield return new WaitForSeconds(Interval);
 
-            Vector3 spawnPosition = new Vector3();
-            spawnPosition.x = Random.Range(3.4f, 5.4f);
-            spawnPosition.y = Random.Range(3.4f, -3.4f);
+            Obstacle obst = Instantiate(obstacle, transform);
 
-            Instantiate(obstacle, spawnPosition, Quaternion.identity);
+            Vector3 spawnPos = new Vector3();
+            spawnPos.x = Random.Range(3.4f, 5.4f);
+            spawnPos.y = Random.Range(3.4f, -3.4f);
+
+            obstacle.transform.position = spawnPos;
         }
     }
 }

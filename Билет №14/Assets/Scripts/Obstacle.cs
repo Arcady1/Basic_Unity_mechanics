@@ -8,15 +8,26 @@ public class Obstacle : MonoBehaviour
 
     void Update()
     {
+        Moving();
+    }
+
+    void Moving()
+    {
         Vector3 direction = -transform.right * ObstacleSpeed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, ObstacleSpeed * Time.deltaTime);
 
-        if(transform.position.x < -4f)
+        if (transform.position.x < -4f)
         {
             Destroy(gameObject);
 
             Score score = FindObjectOfType<Score>();
             score.ScoreValue();
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+            Destroy(gameObject);
     }
 }
