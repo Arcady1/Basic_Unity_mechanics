@@ -5,8 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField]
-    [Range(15f, 30f)]
-    private float JumpForce = 15f;
+    [Range(4f, 15f)]
+    private float JumpForce = 7.5f;
     private float ExtraJumps;
     Rigidbody2D rb;
 
