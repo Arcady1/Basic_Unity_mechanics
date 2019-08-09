@@ -1,4 +1,4 @@
-Unity3D version: 2018.3.12f1
+Unity3D version: 2018.3.12f1 [https://unity3d.com/unity/whats-new/2018.3.12]
 ***
 Билеты: [https://vk.com/doc114150931_496441546?hash=01b585c6eec6205c1e&dl=43cf6d72d621738d75]
 ***
